@@ -3,6 +3,7 @@
 	{{template "user/settings/navbar" .}}
 	<div class="ui container">
 		{{template "base/alert" .}}
+		{{if $.UserModules.Enabled "password"}}
 		<h4 class="ui top attached header">
 			{{.i18n.Tr "settings.password"}}
 		</h4>
@@ -37,6 +38,7 @@
 			</div>
 			{{end}}
 		</div>
+		{{end}}
 
 		<h4 class="ui top attached header">
 			{{.i18n.Tr "settings.manage_emails"}}
@@ -171,6 +173,7 @@
 	{{template "base/delete_modal_actions" .}}
 </div>
 
+<<<<<<< HEAD
 <div class="ui small basic delete modal" id="delete-account">
 	<div class="ui icon header">
 		{{svg "octicon-trash"}}
@@ -181,5 +184,19 @@
 	</div>
 	{{template "base/delete_modal_actions" .}}
 </div>
+=======
+{{if $.UserModules.Enabled "suicide"}}
+	<div class="ui small basic delete modal" id="delete-account">
+		<div class="ui icon header">
+			{{svg "octicon-trash"}}
+			{{.locale.Tr "settings.delete_account_title"}}
+		</div>
+		<div class="content">
+			<p>{{.locale.Tr "settings.delete_account_desc"}}</p>
+		</div>
+		{{template "base/delete_modal_actions" .}}
+	</div>
+{{end}}
+>>>>>>> 48e102c93 (Allow disalbe part user settings)
 
 {{template "base/footer" .}}

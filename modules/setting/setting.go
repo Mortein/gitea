@@ -1096,6 +1096,8 @@ func loadFromConf(allowEmpty bool, extraConfig string) {
 		log.Error("Deprecated setting `[u2]` `APP_ID` present. This fallback will be removed in v1.18.0")
 		U2F.AppID = Cfg.Section("u2f").Key("APP_ID").MustString(strings.TrimSuffix(AppURL, "/"))
 	}
+
+	newUserSetting()
 }
 
 func parseAuthorizedPrincipalsAllow(values []string) ([]string, bool) {
